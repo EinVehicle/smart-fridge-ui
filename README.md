@@ -37,13 +37,14 @@ When the fridge door opens:
 ## 📂 Project Structure
 
 📁 ui/
+┣ 📁 videos/ → Thumbnails and video files
+┃ ┗ 📄 .gitkeep
 ┣ 📄 index.html → Main web page
 ┣ 📄 style.css → Page styling
 ┣ 📄 scripts.js → JavaScript logic (fetching JSON, dynamic display)
 ┣ 📄 analysis.json → AI analysis data (auto-generated)
 ┣ 📄 videos.json → Video metadata
-┣ 📁 videos/ → Thumbnails and video files
-┃ ┗ 📄 .gitkeep
+┣ 📄 fridge.json → Fridge metadata
 ┗ 📄 README.md → This documentation
 
 

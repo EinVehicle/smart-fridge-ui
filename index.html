@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Fridge Monitoring UI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <h1>Smart Fridge Monitoring System</h1>
+  </header>
+  <main>
+    <div class="card" id="timeline-card">
+      <h2>Fridge Open Events</h2>
+      <div class="timeline-container" id="timeline-container">
+      </div>
+    </div>
+    <section class="status">
+      <!-- AI analysis card -->
+      <div class="card">
+        <h2>AI Analysis Result</h2>
+        <ul class="item-list" id="item-list"></ul>
+        <p class="update-time" id="update-time"></p>
+      </div>
+      <!-- Fridge overview card -->
+      <div class="card" id="fridge-overview-card">
+        <h2>Fridge Overview</h2>
+        <p>Door: <span id="door-status">—</span></p>
+        <p>Sensor: <span id="sensor-status">—</span></p>
+        <p>Power: <span id="power-status">—</span></p>
+        <p>Free Space: <span id="free-space">—</span></p>
+        <p class="update-time" id="overview-update-time"></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Video popup -->
+  <div id="video-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <video id="modal-video" controls></video>
+    </div>
+  </div>
+
+  <script src = "scripts.js"> </script>
+</body>
+</html>

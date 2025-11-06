@@ -1,0 +1,8 @@
+{
+  "last_updated": "Nov 5, 2025 10:32 AM",
+  "items": [
+    { "name": "test-item1", "stored_for": "2 days" },
+    { "name": "test-item2", "stored_for": "5 days" },
+    { "name": "test-item3", "stored_for": "1 day" }
+  ]
+}

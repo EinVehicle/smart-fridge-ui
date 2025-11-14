@@ -50,18 +50,47 @@ When the fridge door opens:
 
 ---
 
+## API Documentation
+See the API specification here:  
+ **[API.md](./API.md)**
+
 ## 🚀 Run Locally
 
 ### Prerequisites
 - Python 3.x installed
 
 ### Start the server:
+
+test only forntend:
 ```bash
 cd ui
 python -m http.server 8000
 ```
 then open http://localhost:8000/
 
+include database & environment(virtual environment):
+python -m venv venv
+# Windows
+venv\Scripts\activate
+# Linux / Mac
+source venv/bin/activate
+
+pip install -r requirements.txt
+
+Create a database and tables using create_table.sql
+
+Update app.py with the database username and password.
+
+python app.py
+
+Then open the front-end
+In a browser, go to: http://127.0.0.1:5000
+The UI will dynamically fetch data from the Flask backend.
+
+NOTE:
+The videos/ folder should contain only production video thumbnails; test videos are excluded from GitHub.
+All dynamic content (fridge status, AI analysis, videos) is fetched from JSON endpoints served by Flask.
+The backend code (app.py) handles API endpoints and database interactions.
 
 team member:
 Encong Wu | Software Engineering | encongw@uci.edu

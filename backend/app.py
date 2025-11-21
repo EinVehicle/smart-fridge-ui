@@ -8,7 +8,7 @@ app = Flask(__name__)
 db = mysql.connector.connect(
     host="localhost",
     user="fridge_user",
-    password="你的密码",
+    password="password",
     database="smart_fridge"
 )
 

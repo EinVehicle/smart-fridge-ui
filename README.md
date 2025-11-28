@@ -36,17 +36,29 @@ When the fridge door opens:
 
 ## 📂 Project Structure
 
-📁 ui/
-┣ 📁 videos/ → Thumbnails and video files
-┃ ┗ 📄 .gitkeep
-┣ 📄 index.html → Main web page
-┣ 📄 style.css → Page styling
-┣ 📄 scripts.js → JavaScript logic (fetching JSON, dynamic display)
-┣ 📄 analysis.json → AI analysis data (auto-generated)
-┣ 📄 videos.json → Video metadata
-┣ 📄 fridge.json → Fridge metadata
-┗ 📄 README.md → This documentation
+project_root/
+│
+├── backend/
+│   ├── app.py
+│   ├── config.py
+│   ├── db.py
+│   ├── requirements.txt
+│   ├── static/
+│   │   ├── videos/
+│   │   ├── thumbnails/
+│   │   └── analysis/
+│   ├── upload/
+│   └── mysql/
+│       ├── create_table.sql
+│
+└── ui/
+    ├── index.html
+    ├── style.css
+    └── scripts.js
 
+## Database Schema
+
+Located in: backend/mysql/create_table.sql
 
 ---
 
@@ -54,38 +66,53 @@ When the fridge door opens:
 See the API specification here:  
  **[API.md](./API.md)**
 
-## 🚀 Run Locally
+API Endpoints
+POST /upload
 
-### Prerequisites
-- Python 3.x installed
+Uploads a new video.
 
-### Start the server:
+Request:
+Content-Type: multipart/form-data
+file: <video.mp4>
 
-test only forntend:
-```bash
-cd ui
-python -m http.server 8000
-```
-then open http://localhost:8000/
+Response:
+{
+  "status": "success",
+  "video_id": 12
+}
 
-include database & environment(virtual environment):
-python -m venv venv
-# Windows
-venv\Scripts\activate
-# Linux / Mac
-source venv/bin/activate
+GET /videos
 
-pip install -r requirements.txt
+Returns all videos with thumbnail & analysis info.
 
-Create a database and tables using create_table.sql
+Response example:
+[
+  {
+    "id": 1,
+    "filename": "clip_001.mp4",
+    "video_url": "/static/videos/clip_001.mp4",
+    "thumbnail_url": "/static/thumbnails/clip_001.jpg",
+    "analysis": { "items": ["milk", "eggs"] }
+  }
+]
 
-Update app.py with the database username and password.
 
-python app.py
 
-Then open the front-end
-In a browser, go to: http://127.0.0.1:5000
-The UI will dynamically fetch data from the Flask backend.
+## 🚀 Run Server
+1. Backend Setup
+cd backend
+pip install -r requirements.txt //install environment
+source venv/bin/activate //active environment
+python app.py //start server
+
+Server start at:
+http://127.0.0.1:5000
+
+2. Frontend
+Open in browser:
+http://127.0.0.1:5000/ui
+
+
 
 NOTE:
 The videos/ folder should contain only production video thumbnails; test videos are excluded from GitHub.

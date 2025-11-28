@@ -1,3 +1,16 @@
-venv/
+# Python venv
+backend/venv/
+backend/static
+
+# Python cache
 __pycache__/
 *.pyc
+
+# Flask logs
+*.log
+
+# Environment and config
+.env
+
+# VSCode settings
+.vscode/
